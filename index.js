@@ -1,6 +1,8 @@
 (() =>
 {
     "use strict"
+    
+    NodeList.prototype[Symbol.iterator] = [][Symbol.iterator]
 
     const $ = selector => document.querySelector(selector)
     const api = "http://pokeapi.co"
