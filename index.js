@@ -2,6 +2,8 @@
 {
     "use strict"
 
+    NodeList.prototype[Symbol.iterator] = [][Symbol.iterator]
+
     const $ = selector => document.querySelector(selector)
     const api = "http://pokeapi.co"
     const pokes = { }
@@ -110,5 +112,13 @@
         let $dialog = $(".pokedex-details")
             $dialog.innerHTML = template(pokes[id])
             $dialog.show()
+    })
+    
+    $("body").addEventListener("click", event =>
+    {
+        let $dialog = $(".pokedex-details")
+
+        if ( $dialog.open ){
+            $dialog.close()
     })
 })()
